@@ -302,8 +302,8 @@
   @media print{.reveal{opacity:1 !important;transform:none !important;}nav{display:none;}section{padding:56px 0;}body::before,body::after{display:none;}}
 
 
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 36px;position:sticky;top:84px;z-index:20;padding:12px 0;background:linear-gradient(var(--bg) 70%,rgba(246,238,234,0));}
-  .filters button{font:500 13.5px 'Inter',sans-serif;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg-alt);color:var(--text-soft);cursor:pointer;transition:all .2s;}
+  .filters{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px;margin:0 0 36px;position:sticky;top:84px;z-index:20;padding:12px 0;background:linear-gradient(var(--bg) 70%,rgba(246,238,234,0));}
+  .filters button{flex:0 0 auto;font:500 13.5px 'Inter',sans-serif;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg-alt);color:var(--text-soft);cursor:pointer;transition:all .2s;}
   .filters button:hover{border-color:var(--line-strong);color:var(--cream);}
   .filters button.on{background:var(--cream);border-color:var(--cream);color:#fbf3ef;}
   .filters .count{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums;}
@@ -384,6 +384,7 @@
     <ul>
       <li><a href="#metodo">Método</a></li>
       <li><a href="#anatomia">Anatomia</a></li>
+      <li><a href="#conversao">Conversão</a></li>
       <li><a href="#gravacao">Gravação</a></li>
       <li><a href="#criativos">Criativos</a></li>
       <li><a href="#regras">Regras</a></li>
@@ -397,12 +398,12 @@
     <h1 class="hero-mega">Criativos<span class="dot">.</span></h1>
     <div class="hero-split">
       <div class="who"><span class="name">Elis</span><span class="role">Instituto Mai · Cascavel, PR</span><span class="script">lote 01 do perpétuo</span></div>
-      <p class="desc">14 roteiros organizados por persona, cada um com <span class="hl">três hooks, um desenvolvimento e dois CTAs</span>. Gravados em lote por cenário, viram mais de oitenta combinações para o gerenciador testar.</p>
+      <p class="desc">23 roteiros organizados por persona, cada um com <span class="hl">três hooks, um desenvolvimento e dois CTAs</span>. Gravados em lote por cenário, viram 138 combinações para o gerenciador testar.</p>
     </div>
     <div class="stat-row">
-      <div class="stat"><div class="num">14</div><div class="label">Roteiros completos</div></div>
-      <div class="stat"><div class="num">42</div><div class="label">Hooks para testar</div></div>
-      <div class="stat"><div class="num">4</div><div class="label">Cenários, gravados em blocos</div></div>
+      <div class="stat"><div class="num">23</div><div class="label">Roteiros completos</div></div>
+      <div class="stat"><div class="num">69</div><div class="label">Hooks para testar</div></div>
+      <div class="stat"><div class="num">9</div><div class="label">Criativos de conversão direta</div></div>
       <div class="stat"><div class="num">5</div><div class="label">Personas cobertas</div></div>
     </div>
   </div>
@@ -441,17 +442,38 @@
   </div>
 </section>
 
+
+<section id="conversao">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="gutter">Conversão direta</span>
+      <div class="sec-side"><h2 class="title">Quente recebe oferta. <em>Frio se qualifica antes da oferta.</em></h2><p class="lede">Até 45 a 60 segundos. O criativo de público quente pula o aquecimento porque a Elis já é conhecida; o de público frio usa o próprio hook como filtro, para pagar o clique só de quem é público.</p></div>
+      <div class="mega" aria-hidden="true">Conversão<span class="dot">.</span><sup>(02)</sup></div>
+    </div>
+    <div class="grid-2">
+      <div class="card"><span class="src dado">Público quente</span><h4>Remarketing: oferta, prova e objeção</h4><ul><li><b>Quem:</b> engajou no Instagram em 90 dias, assistiu 50% dos vídeos, visitou a página ou é paciente</li><li><b>Estrutura:</b> reconhece a relação, mostra o produto, derruba a objeção, CTA</li><li><b>Roteiros:</b> C15, C16, C17, C18</li></ul></div>
+      <div class="card"><span class="src leitura">Público frio</span><h4>Qualificação dentro do anúncio</h4><ul><li><b>Quem:</b> gestantes, mães de recém-nascidos e acompanhantes que nunca viram a Elis</li><li><b>Estrutura:</b> filtro no hook, problema, autoridade, curso como solução, CTA</li><li><b>Roteiros:</b> C19, C20, C21, C22, C23</li></ul></div>
+    </div>
+    <div class="anatomy mt" style="grid-template-columns:2fr 3fr 5fr 2fr;">
+      <div class="a1"><span class="t">0 a 5 s</span><h4>Filtro</h4><p>Diz para quem é e, se precisar, para quem não é.</p></div>
+      <div class="a2"><span class="t">5 a 15 s</span><h4>Problema</h4><p>A dor que aquela pessoa vive ou vai viver, nas palavras dela.</p></div>
+      <div class="a2"><span class="t">15 a 40 s</span><h4>Oferta</h4><p>Quem é a Elis em uma frase, o que tem no curso e por que o formato funciona para ela.</p></div>
+      <div class="a3"><span class="t">40 a 50 s</span><h4>CTA</h4><p>Um pedido só, para a página do curso.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="gravacao">
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="gutter">Plano do set</span>
       <div class="sec-side"><h2 class="title">Gravar por cenário, <em>não por ordem de roteiro.</em></h2><p class="lede">Trocar de cenário é o que mais consome tempo. A ordem abaixo começa pelo vídeo mais fácil para a Elis aquecer.</p></div>
-      <div class="mega" aria-hidden="true">Gravação<span class="dot">.</span><sup>(04)</sup></div>
+      <div class="mega" aria-hidden="true">Gravação<span class="dot">.</span><sup>(05)</sup></div>
     </div>
     <div class="table-wrap">
       <table>
         <tr><th>Cenário</th><th>Montagem</th><th>Roteiros, na ordem</th><th>Tempo estimado</th></tr>
-        <tr><td class="hl">A · Consultório</td><td>Uniforme do Instituto, fundo da clínica, luz frontal suave</td><td class="yes">C13, C01, C05, C06, C07, C08, C04, C14</td><td>~70 min</td></tr><tr><td class="hl">B · Ambiente de enxoval</td><td>Espaço da parceira, roupinhas, itens sem marca</td><td class="yes">C02, C03</td><td>~30 min</td></tr><tr><td class="hl">C · Casa</td><td>Cozinha de dia (C11) e quarto com abajur (C12)</td><td class="yes">C11, C12</td><td>~30 min</td></tr><tr><td class="hl">D · Com acompanhante</td><td>Casal autorizado ou só a Elis</td><td class="yes">C09, C10</td><td>~25 min</td></tr>
+        <tr><td class="hl">A · Consultório</td><td>Uniforme do Instituto, fundo da clínica, luz frontal suave</td><td class="yes">C13, C01, C05, C06, C07, C08, C04, C14</td><td>~70 min</td></tr><tr><td class="hl">B · Ambiente de enxoval</td><td>Espaço da parceira, roupinhas, itens sem marca</td><td class="yes">C02, C03</td><td>~30 min</td></tr><tr><td class="hl">C · Casa</td><td>Cozinha de dia (C11) e quarto com abajur (C12)</td><td class="yes">C11, C12</td><td>~30 min</td></tr><tr><td class="hl">A · Consultório, bloco 2</td><td>Mesmo set, conversão direta</td><td class="yes">C15, C17, C18, C19, C20, C21</td><td>~45 min</td></tr><tr><td class="hl">B · Ambiente de enxoval, bloco 2</td><td>Mesmo set do bloco 1</td><td class="yes">C23</td><td>~10 min</td></tr><tr><td class="hl">D · Com acompanhante</td><td>Casal autorizado ou só a Elis</td><td class="yes">C09, C10, C22</td><td>~30 min</td></tr><tr><td class="hl">E · Tela</td><td>Gravação da área de membros, depois de nomear os módulos</td><td class="yes">C16</td><td>~15 min</td></tr>
       </table>
     </div>
     <div class="split mt">
@@ -475,18 +497,18 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="gutter">Roteiros</span>
-      <div class="sec-side"><h2 class="title">Catorze vídeos, <em>cinco personas.</em></h2><p class="lede">Filtre por persona. Cada card traz o ângulo, os três hooks com a lógica de cada um, o corpo do vídeo e os CTAs.</p></div>
-      <div class="mega" aria-hidden="true">Roteiros<span class="dot">.</span><sup>(14)</sup></div>
+      <div class="sec-side"><h2 class="title">23 vídeos, <em>conteúdo e conversão.</em></h2><p class="lede">Filtre por tipo (conteúdo, conversão quente, conversão fria) ou por persona. Cada card traz o ângulo, os três hooks com a lógica de cada um, o corpo do vídeo e os CTAs.</p></div>
+      <div class="mega" aria-hidden="true">Roteiros<span class="dot">.</span><sup>(23)</sup></div>
     </div>
-    <div class="filters" role="group" aria-label="Filtrar por persona"><button class="on" data-f="all">Todos<span class="count">14</span></button><button data-f="g">Gestante<span class="count">6</span></button><button data-f="p">Puérpera<span class="count">4</span></button><button data-f="a">Acompanhante<span class="count">2</span></button><button data-f="t">Volta ao trabalho<span class="count">1</span></button><button data-f="f">Família à distância<span class="count">1</span></button></div>
+    <div class="filters" role="group" aria-label="Filtrar por persona"><button class="on" data-f="all">Todos<span class="count">23</span></button><button data-f="k:c">Conteúdo<span class="count">14</span></button><button data-f="k:q">Conversão · quente<span class="count">4</span></button><button data-f="k:f">Conversão · frio<span class="count">5</span></button><button data-f="g">Gestante<span class="count">12</span></button><button data-f="p">Puérpera<span class="count">6</span></button><button data-f="a">Acompanhante<span class="count">3</span></button><button data-f="t">Volta ao trabalho<span class="count">1</span></button><button data-f="f">Família à distância<span class="count">1</span></button></div>
     
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">01<small>C01</small></div>
         <div>
           <h3 class="cr-title">O maior medo: não ter leite</h3>
           <p class="cr-angle">Nomeia o medo número um da gestante e desmonta com a linha do tempo real do leite. Criativo-âncora da campanha da gestante.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">40 a 50 s</div>
       </div>
@@ -503,13 +525,13 @@
         <div class="warn"><b>Cuidado</b>Não prometer que ela vai ter leite. A promessa é saber o que esperar e o que fazer.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">02<small>C02</small></div>
         <div>
           <h3 class="cr-title">Estude enquanto vive</h3>
           <p class="cr-angle">Inspirado no formato que a Elis citou: aprender enquanto faz outra coisa. Responde à objeção de tempo e mostra o diferencial das microaulas.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">B-roll com voz</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">B-roll com voz</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
         </div>
         <div class="cr-time">25 a 35 s</div>
       </div>
@@ -526,13 +548,13 @@
         <div class="warn"><b>Cuidado</b>Sem marca de produto aparecendo, principalmente mamadeira, bico e chupeta.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">03<small>C03</small></div>
         <div>
           <h3 class="cr-title">Antes de comprar o enxoval da amamentação</h3>
           <p class="cr-angle">Entra pela compra, que a gestante já está fazendo, e leva ao módulo de acessórios. Ponte natural para o futuro low ticket de enxoval.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
         </div>
         <div class="cr-time">30 a 40 s</div>
       </div>
@@ -549,13 +571,13 @@
         <div class="warn"><b>Cuidado</b>NBCAL: nunca mostrar ou citar chupeta, mamadeira ou bico como produto. Não indicar marca.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">04<small>C04</small></div>
         <div>
           <h3 class="cr-title">Colostro na gestação</h3>
           <p class="cr-angle">O diferencial técnico mais novo do curso. Gera curiosidade e autoridade, mas exige o cuidado clínico mais rigoroso do lote.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">35 a 45 s</div>
       </div>
@@ -572,13 +594,13 @@
         <div class="warn"><b>Cuidado</b>Nunca dizer &quot;você tem indicação&quot;. O hook de cesárea depende de validação da Elis; se ela não aprovar, usar só os dois primeiros.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="p">
+    <article class="cr reveal" data-p="p" data-k="c">
       <div class="cr-head">
         <div class="cr-id">05<small>C05</small></div>
         <div>
           <h3 class="cr-title">A segunda noite</h3>
           <p class="cr-angle">Identificação imediata com a puérpera e com o acompanhante. Usa o comportamento que a Elis descreve na clínica.</p>
-          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">35 a 45 s</div>
       </div>
@@ -595,13 +617,13 @@
         <div class="warn"><b>Cuidado</b>Não substituir avaliação: se o bebê não molha fralda ou parece muito prostrado, procurar atendimento. Pode entrar como legenda.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="p">
+    <article class="cr reveal" data-p="p" data-k="c">
       <div class="cr-head">
         <div class="cr-id">06<small>C06</small></div>
         <div>
           <h3 class="cr-title">Dia 3: mama empedrada</h3>
           <p class="cr-angle">O sintoma mais concreto e urgente. Criativo-âncora da campanha da puérpera e do futuro SOS.</p>
-          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head + demonstração</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Puérpera</span><span class="chip ">Talking head + demonstração</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">40 a 50 s</div>
       </div>
@@ -618,13 +640,13 @@
         <div class="warn"><b>Cuidado</b>Sem promessa de cura. Sinais de alerta precisam aparecer na fala.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="p">
+    <article class="cr reveal" data-p="p" data-k="c">
       <div class="cr-head">
         <div class="cr-id">07<small>C07</small></div>
         <div>
           <h3 class="cr-title">Dia 10: meu leite secou?</h3>
           <p class="cr-angle">Desmonta a falsa queda de produção, que a Elis vê nas pacientes por volta do décimo dia e de novo perto dos dois meses.</p>
-          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">30 a 40 s</div>
       </div>
@@ -641,13 +663,13 @@
         <div class="warn"><b>Cuidado</b>Não generalizar: baixo ganho de peso existe e precisa de avaliação. A aula de baixo ganho de peso pode ser citada.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="p">
+    <article class="cr reveal" data-p="p" data-k="c">
       <div class="cr-head">
         <div class="cr-id">08<small>C08</small></div>
         <div>
           <h3 class="cr-title">Remédio não é motivo automático para desmamar</h3>
           <p class="cr-angle">A história real da Elis vira o vilão do projeto: a informação errada no momento errado. Sem atacar médico.</p>
-          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head, storytelling</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Puérpera</span><span class="chip ">Talking head, storytelling</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">45 a 60 s</div>
       </div>
@@ -664,13 +686,13 @@
         <div class="warn"><b>Cuidado</b>Nunca dizer que o médico errou. O foco é a informação. Não indicar remédio nem dose.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="a">
+    <article class="cr reveal" data-p="a" data-k="c">
       <div class="cr-head">
         <div class="cr-id">09<small>C09</small></div>
         <div>
           <h3 class="cr-title">Acompanhante, esse vídeo é para você</h3>
           <p class="cr-angle">Fala com quem mais engaja no perfil e quem decide quando a mãe não consegue pensar. Linguagem inclusiva: acompanhante.</p>
-          <div class="chips"><span class="chip p">Acompanhante</span><span class="chip ">Talking head ou casal</span><span class="chip ">Cenário D · Com acompanhante</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Acompanhante</span><span class="chip ">Talking head ou casal</span><span class="chip ">Cenário D · Com acompanhante</span></div>
         </div>
         <div class="cr-time">35 a 45 s</div>
       </div>
@@ -687,13 +709,13 @@
         <div class="warn"><b>Cuidado</b>Não usar &quot;pai&quot; como única palavra. Autorização de imagem por escrito de qualquer pessoa no quadro.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="a">
+    <article class="cr reveal" data-p="a" data-k="c">
       <div class="cr-head">
         <div class="cr-id">10<small>C10</small></div>
         <div>
           <h3 class="cr-title">&quot;Ela tá com fome de novo?&quot;</h3>
           <p class="cr-angle">Versão leve e humorada para o público que já engaja com conteúdo de casal. Mesmo ensinamento do C05, outra porta de entrada.</p>
-          <div class="chips"><span class="chip p">Acompanhante</span><span class="chip ">Esquete curta</span><span class="chip ">Cenário D · Com acompanhante</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Acompanhante</span><span class="chip ">Esquete curta</span><span class="chip ">Cenário D · Com acompanhante</span></div>
         </div>
         <div class="cr-time">20 a 30 s</div>
       </div>
@@ -710,13 +732,13 @@
         <div class="warn"><b>Cuidado</b>Humor sobre a situação, nunca sobre a mãe.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="t">
+    <article class="cr reveal" data-p="t" data-k="c">
       <div class="cr-head">
         <div class="cr-id">11<small>C11</small></div>
         <div>
           <h3 class="cr-title">Volta ao trabalho sem desmamar</h3>
           <p class="cr-angle">Fala com a mãe no momento exato de compra: quando decide voltar. Ponte para o produto de retorno ao trabalho e para o B2B.</p>
-          <div class="chips"><span class="chip p">Volta ao trabalho</span><span class="chip ">Talking head</span><span class="chip ">Cenário C · Casa</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Volta ao trabalho</span><span class="chip ">Talking head</span><span class="chip ">Cenário C · Casa</span></div>
         </div>
         <div class="cr-time">35 a 45 s</div>
       </div>
@@ -733,13 +755,13 @@
         <div class="warn"><b>Cuidado</b>NBCAL: não mostrar mamadeira como solução. Copinho e colher dosadora são as opções faladas.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="f">
+    <article class="cr reveal" data-p="f" data-k="c">
       <div class="cr-head">
         <div class="cr-id">12<small>C12</small></div>
         <div>
           <h3 class="cr-title">Três da manhã</h3>
           <p class="cr-angle">O argumento de origem do curso, nas palavras da Elis. Funciona para quem mora longe e para qualquer mãe sem rede de apoio por perto.</p>
-          <div class="chips"><span class="chip p">Família à distância</span><span class="chip ">Talking head, luz baixa</span><span class="chip ">Cenário C · Casa</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Família à distância</span><span class="chip ">Talking head, luz baixa</span><span class="chip ">Cenário C · Casa</span></div>
         </div>
         <div class="cr-time">30 a 40 s</div>
       </div>
@@ -756,13 +778,13 @@
         <div class="warn"><b>Cuidado</b>Não prometer resposta imediata de pessoa. O que está disponível 24 horas é o curso.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">13<small>C13</small></div>
         <div>
           <h3 class="cr-title">Sem julgamento</h3>
           <p class="cr-angle">O posicionamento em forma de criativo. Gera conexão com quem se sente cobrada pelo nicho e diferencia a Elis de todo mundo.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">35 a 45 s</div>
       </div>
@@ -779,13 +801,13 @@
         <div class="warn"><b>Cuidado</b>Não falar contra o aleitamento exclusivo nem contra recomendações oficiais. A mensagem é respeito à escolha informada.</div>
       </div>
     </article>
-    <article class="cr reveal" data-p="g">
+    <article class="cr reveal" data-p="g" data-k="c">
       <div class="cr-head">
         <div class="cr-id">14<small>C14</small></div>
         <div>
           <h3 class="cr-title">Mamilo plano ou invertido</h3>
           <p class="cr-angle">Primeiro de uma série de casos fora do padrão. Mostra a profundidade do curso e atrai uma dor específica e silenciosa.</p>
-          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+          <div class="chips"><span class="chip d">Conteúdo</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
         </div>
         <div class="cr-time">30 a 40 s</div>
       </div>
@@ -800,6 +822,213 @@
       <div class="cr-notes">
         <div><b>Na gravação</b>Sem imagem de corpo. Usar ilustração ou modelo didático se precisar mostrar.</div>
         <div class="warn"><b>Cuidado</b>O hook de prótese e redução não promete resultado: cada caso tem particularidade. Elis valida o texto.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="q">
+      <div class="cr-head">
+        <div class="cr-id">15<small>C15</small></div>
+        <div>
+          <h3 class="cr-title">Você já me assiste. Falta o curso.</h3>
+          <p class="cr-angle">Remarketing para quem já engaja com a Elis. Sem aquecimento: reconhece a relação e faz a oferta direta.</p>
+          <div class="chips"><span class="chip d">Conversão · quente</span><span class="chip p">Gestante</span><span class="chip ">Talking head, oferta direta</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">40 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Reconhecimento</div><p>Se você já assiste os meus vídeos sobre amamentação, esse aqui é diferente: é um convite.</p><div class="vis">Visual: Elis olhando para a câmera, tom de conversa.</div></div><div class="hook"><div class="ht"><b>H2</b>Oferta direta</div><p>Tudo o que eu ensino aqui no Instagram está organizado, do começo ao fim, num curso só.</p></div><div class="hook"><div class="ht"><b>H3</b>Ponte</div><p>Você já aprendeu um pouco comigo. Agora deixa eu te ensinar a amamentação inteira.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Nos vídeos eu falo de um assunto por vez. No Amamentação Mais Leve está tudo em ordem: da preparação na gestação até a volta ao trabalho.</p><p>São sete módulos e setenta e oito aulas curtas. Pega, posição, apojadura, mama empedrada, baixa produção, casos especiais, enxoval e ordenha.</p><p>Você assiste no celular, no seu tempo, e o acesso fica com você para revisar quando o bebê nascer, inclusive de madrugada.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais, conhece o curso e garante o seu acesso hoje.</p></div>
+        <div><h6>CTA alternativo</h6><p>Você tem sete dias de garantia. Entra, assiste e decide.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Público: engajamento de 90 dias no Instagram, seguidores e visualizadores de 50% dos vídeos.</div>
+        <div class="warn"><b>Cuidado</b>Garantia de 7 dias: confirmar a configuração na Hotmart antes de citar.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="q">
+      <div class="cr-head">
+        <div class="cr-id">16<small>C16</small></div>
+        <div>
+          <h3 class="cr-title">Por dentro do curso</h3>
+          <p class="cr-angle">Tour pela área de membros. Tira o medo do desconhecido mostrando a lista de aulas curtas na tela.</p>
+          <div class="chips"><span class="chip d">Conversão · quente</span><span class="chip p">Gestante</span><span class="chip ">Gravação de tela + rosto</span><span class="chip ">Cenário E · Tela</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Demonstração</div><p>Deixa eu te mostrar por dentro o curso de amamentação que eu gravei.</p><div class="vis">Visual: Tela do celular rolando a lista de módulos e aulas, Elis em janela no canto.</div></div><div class="hook"><div class="ht"><b>H2</b>Prova de formato</div><p>Olha o tamanho das aulas: dois, três minutos. Dá para assistir entre uma mamada e outra.</p></div><div class="hook"><div class="ht"><b>H3</b>Curiosidade</div><p>Setenta e oito aulas. Vou te mostrar quais são em trinta segundos.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Primeiro módulo: fundamentos, como o leite é produzido, a apojadura, por que nem todo choro é fome.</p><p>Depois, posição e pega. Aqui tem a aula que mais resolve dor.</p><p>Tem um módulo inteiro só de dificuldades: mama empedrada, lesão, mastite, baixa produção. E casos especiais, como prótese, mamilo invertido e prematuro.</p><p>E no final, enxoval, ordenha e retorno ao trabalho.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Gostou do que viu? Toca em saiba mais e começa agora.</p></div>
+        <div><h6>CTA alternativo</h6><p>Salva esse vídeo para mostrar para quem vai estar do seu lado.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar a tela em resolução vertical, rolagem lenta. Corrigir os nomes dos módulos antes de filmar, para não mostrar &quot;Módulo 02&quot; sem título.</div>
+        <div class="warn"><b>Cuidado</b>Não mostrar dados de alunas nem o painel de vendas.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="q">
+      <div class="cr-head">
+        <div class="cr-id">17<small>C17</small></div>
+        <div>
+          <h3 class="cr-title">As três desculpas para deixar para depois</h3>
+          <p class="cr-angle">Quebra das objeções mais comuns em sequência. Para quem visitou a página e não comprou.</p>
+          <div class="chips"><span class="chip d">Conversão · quente</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">45 a 55 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Objeção</div><p>Três motivos que fazem a gestante deixar o curso de amamentação para depois. E por que não deveriam.</p></div><div class="hook"><div class="ht"><b>H2</b>Situação</div><p>Estava pensando em fazer o curso, mas ainda não decidiu? Me escuta quarenta segundos.</p></div><div class="hook"><div class="ht"><b>H3</b>Pergunta</div><p>O que está te segurando para se preparar para amamentar?</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Primeiro: &quot;eu vejo depois que o bebê nascer&quot;. Depois que nasce, você está cansada, de madrugada, com dor. É muito mais difícil aprender nessa hora.</p><p>Segundo: &quot;tem tudo de graça na internet&quot;. Tem, mas solto. Aqui é a sequência certa, na fase certa.</p><p>Terceiro: &quot;não tenho tempo&quot;. As aulas têm poucos minutos. Você assiste enquanto toma café.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Se nenhum desses motivos te segura mais, toca em saiba mais e entra hoje.</p></div>
+        <div><h6>CTA alternativo</h6><p>Ainda ficou alguma dúvida? Chama no WhatsApp que a gente responde.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Contar nos dedos ajuda o ritmo. Corte seco entre um motivo e outro.</div>
+        <div class="warn"><b>Cuidado</b>Não usar urgência falsa: sem &quot;últimas vagas&quot; nem &quot;só hoje&quot;.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p" data-k="q">
+      <div class="cr-head">
+        <div class="cr-id">18<small>C18</small></div>
+        <div>
+          <h3 class="cr-title">Já nasceu? O curso ainda é para você</h3>
+          <p class="cr-angle">Remarketing para quem engajou com conteúdo de puerpério. Mostra que o curso funciona como consulta por sintoma.</p>
+          <div class="chips"><span class="chip d">Conversão · quente</span><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Chamada de momento</div><p>O bebê já nasceu e você acha que perdeu a hora de fazer o curso? Não perdeu.</p></div><div class="hook"><div class="ht"><b>H2</b>Sintoma</div><p>Mamar está doendo? Tem uma aula exata para o que você está sentindo.</p></div><div class="hook"><div class="ht"><b>H3</b>Madrugada</div><p>Antes de passar mais uma madrugada pesquisando no Google, assiste isso.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>O Amamentação Mais Leve foi feito também para consulta. Você abre, procura o que está acontecendo e assiste a aula daquele problema em poucos minutos.</p><p>Dor para amamentar, lesão no mamilo, mama empedrada, bebê que não ganha peso, como saber se ele está mamando o suficiente.</p><p>E se você precisar de alguém olhando o seu caso, a gente atende online e, em Cascavel, presencial.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e assiste hoje a aula do que você está passando.</p></div>
+        <div><h6>CTA alternativo</h6><p>Precisa de ajuda individual? Chama no WhatsApp.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar com tom mais acolhedor e voz baixa.</div>
+        <div class="warn"><b>Cuidado</b>Sinais de alerta (febre, vermelhidão forte, bebê prostrado) precisam de atendimento. Citar na legenda.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="f">
+      <div class="cr-head">
+        <div class="cr-id">19<small>C19</small></div>
+        <div>
+          <h3 class="cr-title">Primeira vez? Esse vídeo é para você</h3>
+          <p class="cr-angle">Frio com qualificação no hook: quem não é gestante de primeira viagem é convidada a sair. Quem fica, já é público.</p>
+          <div class="chips"><span class="chip d">Conversão · frio</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">45 a 55 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Filtro explícito</div><p>Se você está grávida do primeiro filho e quer amamentar, assiste até o final. Se não é o seu caso, pode passar.</p><div class="vis">Visual: Texto na tela: &quot;grávida do primeiro filho?&quot;</div></div><div class="hook"><div class="ht"><b>H2</b>Filtro por fase</div><p>Grávida a partir do sétimo mês? Esse é o melhor momento para se preparar para amamentar.</p></div><div class="hook"><div class="ht"><b>H3</b>Filtro por medo</div><p>Grávida e com medo de não ter leite? Fica até o fim.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Eu sou a Elis, enfermeira especialista em aleitamento aqui do Instituto Mai, em Cascavel.</p><p>A maioria das dificuldades que eu atendo começa nos primeiros dias, e muitas poderiam ser evitadas se a mãe soubesse antes o que vai acontecer: a segunda noite, a apojadura no terceiro dia, a pega.</p><p>Por isso eu gravei o Amamentação Mais Leve: aulas curtas, para assistir na gestação e revisar depois que o bebê nascer.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e começa hoje a se preparar.</p></div>
+        <div><h6>CTA alternativo</h6><p>Manda para a sua amiga que também está grávida.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>A apresentação da Elis só entra depois do filtro, nunca no começo.</div>
+        <div class="warn"><b>Cuidado</b>Não prometer que vai evitar toda dificuldade. &quot;Muitas poderiam ser evitadas&quot; é o limite.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="f">
+      <div class="cr-head">
+        <div class="cr-id">20<small>C20</small></div>
+        <div>
+          <h3 class="cr-title">Três sinais de que você precisa se preparar antes</h3>
+          <p class="cr-angle">Frio que se autoqualifica por checklist. Cada sinal é um filtro; quem se reconhece em um já está no público.</p>
+          <div class="chips"><span class="chip d">Conversão · frio</span><span class="chip p">Gestante</span><span class="chip ">Talking head, lista</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">45 a 55 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Lista</div><p>Três sinais de que você precisa se preparar para amamentar antes do parto.</p></div><div class="hook"><div class="ht"><b>H2</b>Autodiagnóstico</div><p>Grávida? Se você se identificar com pelo menos um desses três pontos, se prepara antes.</p></div><div class="hook"><div class="ht"><b>H3</b>Medo herdado</div><p>Sua mãe ou sua amiga teve dificuldade para amamentar? Então esse vídeo é para você.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Um: é o seu primeiro filho, ou na última gestação a amamentação foi difícil.</p><p>Dois: alguém próximo passou por muita dor ou desistiu, e você tem medo de que aconteça o mesmo.</p><p>Três: você tem prótese, fez redução, tem mamilo plano ou invertido, ou simplesmente não sabe se o seu corpo vai conseguir.</p><p>Se você se reconheceu em um desses, a preparação faz diferença. No Amamentação Mais Leve tem aula para cada um desses casos.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e assiste a aula do seu caso ainda na gestação.</p></div>
+        <div><h6>CTA alternativo</h6><p>É de Cascavel? Agenda uma avaliação de amamentação na gestação.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Número na tela a cada sinal.</div>
+        <div class="warn"><b>Cuidado</b>Prótese e redução: sem prometer resultado. &quot;Tem aula para o seu caso&quot; é o limite.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p" data-k="f">
+      <div class="cr-head">
+        <div class="cr-id">21<small>C21</small></div>
+        <div>
+          <h3 class="cr-title">Bebê com menos de três meses e mamar está doendo?</h3>
+          <p class="cr-angle">Frio para puérpera com qualificação por idade do bebê e sintoma. Conversão rápida para o curso ou para o atendimento.</p>
+          <div class="chips"><span class="chip d">Conversão · frio</span><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">40 a 50 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Filtro duplo</div><p>Se o seu bebê tem menos de três meses e amamentar está doendo, para tudo e assiste isso.</p><div class="vis">Visual: Texto na tela: &quot;bebê com menos de 3 meses?&quot;</div></div><div class="hook"><div class="ht"><b>H2</b>Sintoma</div><p>Mamilo machucado, mama dura e bebê que não pega? Isso tem nome e tem manejo.</p></div><div class="hook"><div class="ht"><b>H3</b>Desistência</div><p>Antes de desistir de amamentar, me dá quarenta segundos.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Dor na amamentação é comum, mas não é para ser normal. Na maioria das vezes ela vem da pega, da posição ou da mama muito cheia.</p><p>Muitas vezes é um ajuste pequeno. Eu atendi uma mãe que resolveu a dor só apoiando a mama de outro jeito durante a mamada.</p><p>No Amamentação Mais Leve tem uma aula para cada uma dessas situações, curta, para você assistir agora.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e assiste hoje.</p></div>
+        <div><h6>CTA alternativo</h6><p>Em Cascavel e região, a gente atende presencial e em domicílio. Chama no WhatsApp.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Se a Elis preferir, trocar o caso do apoio da mama por outro caso real, contado sem identificar a paciente.</div>
+        <div class="warn"><b>Cuidado</b>Sinais de alerta na legenda. Não prometer fim da dor.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="a" data-k="f">
+      <div class="cr-head">
+        <div class="cr-id">22<small>C22</small></div>
+        <div>
+          <h3 class="cr-title">Sua parceira está grávida?</h3>
+          <p class="cr-angle">Frio para o acompanhante, qualificado no hook. Um acesso, duas pessoas: o casal assiste junto.</p>
+          <div class="chips"><span class="chip d">Conversão · frio</span><span class="chip p">Acompanhante</span><span class="chip ">Talking head</span><span class="chip ">Cenário D · Com acompanhante</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Filtro</div><p>Se a pessoa que você ama está grávida e você quer ajudar de verdade na amamentação, assiste.</p></div><div class="hook"><div class="ht"><b>H2</b>Provocação</div><p>Na segunda noite do bebê, quem vai saber o que fazer: você ou o Google?</p></div><div class="hook"><div class="ht"><b>H3</b>Presente útil</div><p>O melhor presente que você pode dar para quem vai amamentar não está na loja de enxoval.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Depois do parto, a mãe está cansada e muitas vezes não consegue pensar com clareza. Quem está do lado precisa saber o que é normal.</p><p>No Amamentação Mais Leve vocês aprendem juntos: segunda noite, apojadura, pega, sinais de alerta. Um acesso, os dois assistindo.</p><p>Aqui na clínica, quase todo acompanhante vem às aulas. Esse é o jeito de vocês fazerem isso em casa.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e assistam juntos.</p></div>
+        <div><h6>CTA alternativo</h6><p>Manda esse vídeo para ela e decidam juntos.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Se não houver acompanhante disponível, a Elis grava falando direto para a câmera.</div>
+        <div class="warn"><b>Cuidado</b>Linguagem inclusiva: &quot;a pessoa que você ama&quot;, &quot;acompanhante&quot;.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g" data-k="f">
+      <div class="cr-head">
+        <div class="cr-id">23<small>C23</small></div>
+        <div>
+          <h3 class="cr-title">Vai ao chá de bebê?</h3>
+          <p class="cr-angle">Teste da persona &quot;quem presenteia&quot;. Hipótese ainda não validada; vale como teste barato de público novo.</p>
+          <div class="chips"><span class="chip d">Conversão · frio</span><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
+        </div>
+        <div class="cr-time">30 a 40 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Ocasião</div><p>Vai a um chá de bebê e não sabe o que dar?</p><div class="vis">Visual: Elis segurando um cartão de presente sem marca.</div></div><div class="hook"><div class="ht"><b>H2</b>Contraste</div><p>Fralda ela vai ganhar de todo mundo. Isso aqui, quase ninguém dá.</p></div><div class="hook"><div class="ht"><b>H3</b>Avó</div><p>Vai ser avó? Tem um presente que ajuda a sua filha nas primeiras noites.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>A maior dificuldade dos primeiros dias não é falta de roupinha. É a amamentação.</p><p>O Amamentação Mais Leve são aulas curtas de uma enfermeira especialista, para assistir na gestação e revisar depois que o bebê nascer.</p><p>É um presente que ela vai usar exatamente quando mais precisar.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e presenteia.</p></div>
+        <div><h6>CTA alternativo</h6><p>Manda esse vídeo para a futura mamãe.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar só depois de confirmar com a Elis que a Hotmart permite compra para terceiro (acesso no e-mail da gestante).</div>
+        <div class="warn"><b>Cuidado</b>Persona em hipótese: medir separado e cortar rápido se não converter.</div>
       </div>
     </article>
   </div>
@@ -839,7 +1068,7 @@
   document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
     const f=b.dataset.f;
-    document.querySelectorAll('.cr').forEach(c=>{const show=f==='all'||c.dataset.p===f;c.classList.toggle('hide',!show);if(show)c.classList.add('in');});
+    document.querySelectorAll('.cr').forEach(c=>{const show=f==='all'||(f.startsWith('k:')?c.dataset.k===f.slice(2):c.dataset.p===f);c.classList.toggle('hide',!show);if(show)c.classList.add('in');});
   }));
 </script>
 </body>
