@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativos · Instituto Mai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6eeea;
+    --bg-alt:#fffdfb;
+    --bg-alt2:#efe3dd;
+    --cream:#2e1b18;
+    --text-soft:#563a35;
+    --text-softer:#6e524c;
+    --terra:#9a4f47;
+    --terra-light:#7e3d36;
+    --nude:#6b3a33;
+    --blush:#c9958e;
+    --rose:#ecd6d0;
+    --gold:#7a5a4a;
+    --mauve:#8a5850;
+    --line:rgba(80,40,35,0.14);
+    --line-strong:rgba(154,79,71,0.45);
+    --r-card:20px;
+    --r-big:28px;
+    --fs-mega:clamp(3.2rem, 0.8rem + 8.6vw, 8.8rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  body::before,body::after{content:"";position:fixed;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none;z-index:0;}
+  body::before{left:max(16px,calc(50% - 600px));}
+  body::after{right:max(16px,calc(50% - 600px));}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+  h1,h2,h3,h4,h5{font-family:'Fraunces',serif;font-optical-sizing:auto;color:var(--cream);}
+  em{font-style:italic;color:var(--terra);font-family:'Fraunces',serif;font-weight:500;}
+  section{padding:150px 0;position:relative;}
+  section:nth-of-type(even){background:var(--bg-alt2);}
+  @media (max-width:760px){section{padding:96px 0;}}
+  ::selection{background:var(--rose);}
+
+  /* header que vira pílula */
+  nav{position:sticky;top:0;z-index:50;transition:padding .32s ease;}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:rgba(246,238,234,0.9);backdrop-filter:blur(12px);transition:max-width .32s ease,border-radius .32s ease,box-shadow .32s ease,padding .32s ease;}
+  nav.is-pill{padding-top:12px;}
+  nav.is-pill .wrap{max-width:1120px;border-radius:999px;padding:12px 28px;box-shadow:0 10px 30px -18px rgba(60,25,20,0.45);background:rgba(255,253,251,0.92);}
+  nav .logo{font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--cream);}
+  nav .logo b{color:var(--terra);font-weight:700;}
+  nav ul{list-style:none;display:flex;gap:6px;}
+  nav ul a{font-size:13px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .2s,color .2s;}
+  nav ul a:hover{background:var(--rose);color:var(--cream);}
+  @media (max-width:1060px){nav ul{display:none;}}
+
+  /* rótulo na calha */
+  .gutter{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--cream);letter-spacing:0.01em;}
+  .gutter::before{content:"+";display:inline-grid;place-items:center;width:20px;height:20px;border:1.5px solid var(--terra);border-radius:50%;color:var(--terra);font-size:14px;font-weight:600;line-height:1;}
+  .meta{font-size:13px;color:var(--text-softer);font-variant-numeric:tabular-nums;}
+
+  /* abertura editorial de seção */
+  .sec-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:28px;margin-bottom:72px;}
+  .sec-head .gutter{grid-column:1 / span 4;align-self:start;padding-top:6px;}
+  .sec-side{grid-column:7 / span 6;}
+  .sec-side h2.title{font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.2;letter-spacing:-0.01em;margin-bottom:14px;max-width:none;}
+  .sec-side h2.title em{color:var(--text-softer);font-style:normal;font-family:'Fraunces',serif;font-weight:500;}
+  .sec-side .lede{font-size:16px;color:var(--text-soft);margin:0;max-width:none;}
+  .mega{grid-column:1 / -1;font-family:'Fraunces',serif;font-weight:600;font-size:var(--fs-mega);line-height:0.86;letter-spacing:-0.045em;color:var(--cream);}
+  .mega .dot{color:var(--terra);}
+  .mega sup{font-family:'Inter',sans-serif;font-size:15px;font-weight:500;letter-spacing:0;color:var(--text-softer);vertical-align:super;margin-left:10px;position:relative;top:-0.6em;}
+  @media (max-width:860px){.sec-head .gutter,.sec-side{grid-column:1 / -1;}}
+
+  .lede{font-size:17px;color:var(--text-soft);max-width:68ch;margin-bottom:40px;}
+  .split{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;}
+  .split > .l{grid-column:1 / span 5;}
+  .split > .r{grid-column:7 / span 6;}
+  @media (max-width:860px){.split > .l,.split > .r{grid-column:1 / -1;}}
+
+  /* HERO */
+  .hero{padding:72px 0 120px;background:var(--bg);}
+  .hero-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:40px;}
+  .hero-mega{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(3.4rem,1rem + 9vw,9.4rem);line-height:0.86;letter-spacing:-0.05em;color:var(--cream);}
+  .hero-mega .dot{color:var(--terra);}
+  .hero-mega .pill-img{display:inline-block;width:0.95em;height:0.62em;border-radius:999px;background:linear-gradient(135deg,var(--blush),var(--mauve));vertical-align:0.05em;margin:0 0.08em;position:relative;overflow:hidden;}
+  .hero-mega .pill-img::after{content:"";position:absolute;inset:18% 30%;border:2px solid rgba(255,255,255,0.75);border-radius:50% 50% 45% 45%;}
+  .hero-split{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:48px;}
+  .hero-split .who{grid-column:1 / span 5;}
+  .hero-split .desc{grid-column:7 / span 6;font-size:18px;color:var(--text-soft);}
+  @media (max-width:860px){.hero-split .who,.hero-split .desc{grid-column:1 / -1;}.hero-split .desc{margin-top:20px;}}
+  .who .name{font-family:'Fraunces',serif;font-size:34px;font-weight:600;display:block;line-height:1.1;}
+  .who .role{font-size:14px;color:var(--text-softer);display:block;margin-top:6px;}
+  .script{font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--terra);font-size:19px;display:block;margin-top:14px;}
+  .hl{background:linear-gradient(var(--rose),var(--rose)) no-repeat 0 88%/100% 62%;border-radius:6px;padding:0 0.18em;}
+
+  /* números tipográficos */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:88px;padding-top:28px;border-top:1px solid var(--line);}
+  @media (max-width:860px){.stat-row{grid-template-columns:repeat(2,1fr);row-gap:36px;}}
+  .stat .num{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(44px,5vw,72px);line-height:0.95;letter-spacing:-0.035em;color:var(--cream);font-variant-numeric:tabular-nums;}
+  .stat .label{font-size:14px;color:var(--text-soft);margin-top:12px;max-width:22ch;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;}
+  .tag{font-size:13px;font-weight:500;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--bg-alt);color:var(--text-soft);}
+  .tag.t{background:var(--cream);border-color:var(--cream);color:#fbf3ef;}
+  .tag.g{background:var(--rose);border-color:var(--rose);color:var(--terra-light);}
+
+  /* citação */
+  blockquote{margin:48px 0;padding:0;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.8vw,34px);line-height:1.25;letter-spacing:-0.01em;color:var(--cream);max-width:30ch;}
+  blockquote{border-left:3px solid var(--terra);padding-left:28px;}
+  blockquote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:13px;font-weight:500;color:var(--text-softer);margin-top:16px;letter-spacing:0;}
+  .note{font-size:13px;color:var(--text-softer);margin-top:16px;}
+  .src{font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:10px;letter-spacing:0.01em;}
+  .src.fala{background:#f4dcdc;color:#7c2f36;}
+  .src.leitura{background:#eee3d3;color:#5e4224;}
+  .src.dado{background:var(--rose);color:var(--terra-light);}
+
+  /* timeline com filetes */
+  .timeline{margin-top:56px;border-top:1px solid var(--line);}
+  .t-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:26px 0;border-bottom:1px solid var(--line);}
+  .t-row .when{grid-column:1 / span 3;font-size:13px;font-weight:600;color:var(--terra);font-variant-numeric:tabular-nums;}
+  .t-row > div:last-child{grid-column:7 / span 6;}
+  @media (max-width:760px){.t-row .when,.t-row > div:last-child{grid-column:1 / -1;}}
+  .t-row b{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:600;margin-bottom:6px;color:var(--cream);}
+  .t-row p{font-size:15px;color:var(--text-soft);}
+
+  /* grids e cards */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media (max-width:960px){.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media (max-width:640px){.grid-3,.grid-2,.grid-4{grid-template-columns:1fr;}}
+  .card{background:var(--bg-alt);border-radius:var(--r-card);padding:30px 28px;transition:transform .24s ease,box-shadow .24s ease;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -28px rgba(60,25,20,0.4);}
+  .card .n{font-family:'Fraunces',serif;font-weight:600;font-size:52px;line-height:0.95;letter-spacing:-0.03em;color:var(--terra);}
+  .card h4{font-family:'Fraunces',serif;font-size:21px;font-weight:600;margin:14px 0 8px;color:var(--cream);}
+  .card p{font-size:15px;color:var(--text-soft);}
+  .card ul{list-style:none;margin-top:8px;}
+  .card li{font-size:14.5px;color:var(--text-soft);padding:11px 0;border-top:1px solid var(--line);}
+  .card li:first-child{border-top:none;}
+
+  /* tabela de filetes */
+  .table-wrap{overflow-x:auto;background:var(--bg-alt);border-radius:var(--r-card);padding:8px 24px;}
+  table{width:100%;border-collapse:collapse;min-width:640px;}
+  th,td{text-align:left;padding:16px 14px 16px 0;font-size:14.5px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  th{font-size:12px;font-weight:600;color:var(--text-softer);letter-spacing:0.02em;}
+  td{color:var(--text-soft);}
+  td.hl{color:var(--cream);font-weight:600;background:none;padding-left:0;}
+  td.yes{color:var(--terra-light);font-weight:600;}
+
+  .fix-list{list-style:none;columns:2;column-gap:48px;margin-top:8px;border-top:1px solid var(--line);}
+  @media (max-width:760px){.fix-list{columns:1;}}
+  .fix-list li{break-inside:avoid;font-size:15px;color:var(--text-soft);padding:16px 0 16px 0;border-bottom:1px solid var(--line);}
+  .fix-list li b{color:var(--cream);font-weight:600;}
+
+  /* jornada */
+  .journey{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:8px;}
+  @media (max-width:1000px){.journey{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:600px){.journey{grid-template-columns:1fr;}}
+  .j{padding:24px 20px 22px;background:var(--bg-alt);border-radius:var(--r-card);position:relative;overflow:hidden;}
+  .j .when{font-size:12.5px;font-weight:600;color:var(--text-softer);font-variant-numeric:tabular-nums;}
+  .j h5{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:10px 0 8px;line-height:1.12;color:var(--cream);}
+  .j p{font-size:14px;color:var(--text-soft);}
+  .j .prod{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--terra-light);background:var(--rose);padding:4px 10px;border-radius:999px;}
+  .heat{height:4px;position:absolute;left:0;right:0;top:0;opacity:1 !important;}
+
+  /* personas */
+  .persona{background:var(--bg-alt);border-radius:var(--r-big);margin-top:28px;overflow:hidden;}
+  .persona.primary{box-shadow:inset 0 0 0 1.5px var(--line-strong);}
+  .p-head{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;padding:44px 44px 36px;}
+  @media (max-width:900px){.p-head{grid-template-columns:1fr;gap:24px;padding:30px 24px;}}
+  .p-head .ptag{font-size:13px;font-weight:600;color:var(--terra);}
+  .p-head h3{font-size:clamp(32px,3.8vw,48px);font-weight:600;line-height:1.02;letter-spacing:-0.03em;margin:12px 0 16px;}
+  .p-head .sum{font-size:16px;color:var(--text-soft);}
+  .p-meta{border-top:1px solid var(--line);align-self:start;}
+  .p-meta div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .p-meta span{font-size:13px;color:var(--text-softer);white-space:nowrap;}
+  .p-meta strong{font-size:14px;font-weight:600;color:var(--cream);text-align:right;}
+  .p-body{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);}
+  @media (max-width:1000px){.p-body{grid-template-columns:1fr 1fr;}}
+  @media (max-width:640px){.p-body{grid-template-columns:1fr;}}
+  .p-block{padding:28px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .p-block:nth-child(3n){border-right:none;}
+  @media (max-width:1000px){.p-block:nth-child(3n){border-right:1px solid var(--line);}.p-block:nth-child(2n){border-right:none;}}
+  @media (max-width:640px){.p-block{border-right:none !important;padding:24px;}}
+  .p-block h6{font-size:12.5px;font-weight:700;color:var(--terra);letter-spacing:0.02em;margin-bottom:14px;text-transform:uppercase;}
+  .p-block ul{list-style:none;}
+  .p-block li{font-size:14.5px;color:var(--text-soft);padding:7px 0 7px 16px;position:relative;line-height:1.5;}
+  .p-block li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;background:var(--terra);}
+  .p-block p{font-size:14.5px;color:var(--text-soft);}
+  .p-block .q{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:20px;line-height:1.28;color:var(--cream);margin-bottom:10px;}
+  .obj{margin-bottom:14px;}
+  .obj b{display:block;font-size:14.5px;color:var(--cream);font-weight:600;margin-bottom:3px;}
+  .obj span{font-size:14px;color:var(--text-soft);}
+  .p-foot{display:grid;grid-template-columns:1fr 1fr;background:var(--cream);color:#fbf3ef;}
+  @media (max-width:760px){.p-foot{grid-template-columns:1fr;}}
+  .p-foot > div{padding:30px 36px;}
+  .p-foot > div:first-child{border-right:1px solid rgba(255,255,255,0.14);}
+  @media (max-width:760px){.p-foot > div:first-child{border-right:none;border-bottom:1px solid rgba(255,255,255,0.14);}}
+  .p-foot h6{font-size:12px;font-weight:600;color:#e7c3bc;margin-bottom:10px;}
+  .p-foot .msg{font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,32px);font-weight:600;line-height:1.12;letter-spacing:-0.02em;color:#fff;}
+  .p-foot p{font-size:14.5px;color:rgba(255,255,255,0.86);}
+
+  .mini-persona{background:var(--bg-alt);border-radius:var(--r-card);padding:30px 28px;}
+  .mini-persona .ptag{font-size:12.5px;font-weight:600;color:var(--text-softer);}
+  .mini-persona h4{font-family:'Fraunces',serif;font-size:27px;font-weight:600;margin:8px 0 12px;line-height:1.08;letter-spacing:-0.02em;}
+  .mini-persona p{font-size:14.5px;color:var(--text-soft);margin-bottom:12px;}
+  .mini-persona .row{font-size:14px;color:var(--text-soft);padding:11px 0;border-top:1px solid var(--line);}
+  .mini-persona .row b{color:var(--cream);font-weight:600;}
+
+  /* seção-cartão escura */
+  .thesis{border-radius:var(--r-big);padding:64px 56px;background:var(--mauve);margin-bottom:56px;position:relative;overflow:hidden;}
+  .thesis::after{content:"Mai.";position:absolute;right:-0.04em;bottom:-0.28em;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(140px,22vw,300px);line-height:1;letter-spacing:-0.06em;color:rgba(255,255,255,0.07);pointer-events:none;}
+  @media (max-width:640px){.thesis{padding:36px 24px;}}
+  .thesis .big{font-family:'Fraunces',serif;font-size:clamp(28px,3.6vw,46px);font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:#fff;max-width:24ch;position:relative;z-index:1;}
+  .thesis p{color:rgba(255,255,255,0.9);font-size:16px;margin-top:22px;max-width:62ch;position:relative;z-index:1;}
+
+  /* hipóteses */
+  .hyp{background:var(--bg-alt);border-radius:var(--r-card);padding:34px 32px;position:relative;}
+  .hyp.on{box-shadow:inset 0 0 0 1.5px var(--terra);}
+  .hyp .hk{font-size:12.5px;font-weight:700;color:var(--text-softer);letter-spacing:0.04em;}
+  .hyp.on .hk{color:var(--terra);}
+  .hyp h4{font-family:'Fraunces',serif;font-size:28px;font-weight:600;line-height:1.08;letter-spacing:-0.02em;margin:12px 0 12px;padding-right:120px;}
+  @media (max-width:640px){.hyp h4{padding-right:0;}}
+  .hyp p{font-size:15px;color:var(--text-soft);margin-bottom:14px;}
+  .badge{position:absolute;top:30px;right:28px;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;}
+  @media (max-width:640px){.badge{position:static;display:inline-block;margin-bottom:12px;}}
+  .badge.rec{background:var(--terra);color:#fff;}
+  .badge.test{background:var(--rose);color:var(--terra-light);}
+  .badge.later{background:var(--bg-alt2);color:var(--text-soft);}
+  .hyp .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+  .hyp .meta span{font-size:12px;font-weight:500;padding:5px 11px;border-radius:999px;background:var(--bg-alt2);color:var(--text-soft);}
+
+  /* esteira */
+  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end;}
+  @media (max-width:1000px){.ladder{grid-template-columns:1fr 1fr;align-items:stretch;}}
+  @media (max-width:600px){.ladder{grid-template-columns:1fr;}}
+  .tier{background:var(--bg-alt);border-radius:var(--r-card);padding:30px 26px;}
+  .tier.main{background:var(--cream);padding-top:48px;padding-bottom:48px;}
+  .tier .step{font-size:12.5px;font-weight:600;color:var(--terra);}
+  .tier h3{font-size:27px;font-weight:600;line-height:1.06;letter-spacing:-0.02em;margin:12px 0 8px;}
+  .tier .price{font-size:14px;font-weight:600;color:var(--terra-light);margin-bottom:14px;font-variant-numeric:tabular-nums;}
+  .tier p{font-size:14.5px;color:var(--text-soft);}
+  .tier ul{list-style:none;margin-top:14px;}
+  .tier li{font-size:14px;color:var(--text-soft);padding:9px 0;border-top:1px solid var(--line);}
+  .tier.main h3{color:#fff;}
+  .tier.main .step,.tier.main .price{color:#e7c3bc;}
+  .tier.main p,.tier.main li{color:rgba(255,255,255,0.88);}
+  .tier.main li{border-top-color:rgba(255,255,255,0.16);}
+  .side-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+  @media (max-width:900px){.side-row{grid-template-columns:1fr;}}
+
+  /* funil */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  @media (max-width:1000px){.flow{grid-template-columns:1fr;}}
+  .fstep{padding:26px 22px;background:var(--bg-alt);border-radius:var(--r-card);position:relative;}
+  .fstep .k{font-size:12px;font-weight:600;color:var(--terra);font-variant-numeric:tabular-nums;}
+  .fstep h4{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:10px 0 8px;}
+  .fstep p{font-size:14px;color:var(--text-soft);}
+  .lane-label{font-size:13px;font-weight:600;color:var(--cream);margin:40px 0 14px;display:inline-flex;align-items:center;gap:10px;}
+  .lane-label::before{content:"+";display:inline-grid;place-items:center;width:20px;height:20px;border:1.5px solid var(--terra);border-radius:50%;color:var(--terra);font-size:14px;line-height:1;}
+
+  /* riscos */
+  .risk{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:28px 0;border-top:1px solid var(--line);}
+  .risk:last-child{border-bottom:1px solid var(--line);}
+  .risk .rk{grid-column:1 / span 3;font-size:13px;font-weight:600;color:var(--terra);padding-top:6px;}
+  .risk > div:last-child{grid-column:5 / span 8;}
+  @media (max-width:760px){.risk .rk,.risk > div:last-child{grid-column:1 / -1;}}
+  .risk h4{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
+  .risk p{font-size:15px;color:var(--text-soft);}
+
+  .phase{background:var(--bg-alt);border-radius:var(--r-card);padding:30px 26px;}
+  .phase .k{font-size:12.5px;font-weight:600;color:var(--terra);}
+  .phase h4{font-family:'Fraunces',serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;margin:10px 0 14px;}
+  .phase ul{list-style:none;}
+  .phase li{font-size:14.5px;color:var(--text-soft);padding:10px 0;border-top:1px solid var(--line);}
+
+  .deal{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line);}
+  @media (max-width:900px){.deal{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.deal{grid-template-columns:1fr;}}
+  .deal div{padding:22px 24px 22px 0;border-bottom:1px solid var(--line);}
+  .deal span{display:block;font-size:12.5px;font-weight:600;color:var(--terra);margin-bottom:6px;}
+  .deal p{font-size:14.5px;color:var(--text-soft);}
+
+  .q-list{list-style:none;counter-reset:q;margin-top:8px;border-top:1px solid var(--line);}
+  .q-list li{counter-increment:q;font-size:16px;color:var(--cream);padding:18px 0 18px 64px;border-bottom:1px solid var(--line);position:relative;}
+  .q-list li::before{content:"(" counter(q,decimal-leading-zero) ")";position:absolute;left:0;top:19px;font-size:13px;font-weight:600;color:var(--terra);font-variant-numeric:tabular-nums;}
+
+  .mt{margin-top:72px;}
+  .sub{font-family:'Fraunces',serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;margin-bottom:18px;color:var(--cream);}
+
+  /* rodapé contato gigante */
+  footer{background:var(--cream);color:#fbf3ef;padding:120px 0 0;overflow:hidden;position:relative;z-index:1;}
+  footer .f-title{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(40px,6vw,88px);line-height:0.95;letter-spacing:-0.04em;color:#fff;max-width:14ch;}
+  footer .f-title em{color:#e7c3bc;}
+  footer .f-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:56px;padding:22px 0;border-top:1px solid rgba(255,255,255,0.16);font-size:13.5px;color:rgba(255,255,255,0.8);}
+  footer .wordmark{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(90px,21vw,300px);line-height:0.8;letter-spacing:-0.06em;color:rgba(255,255,255,0.08);margin-top:24px;margin-bottom:-0.12em;white-space:nowrap;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}html{scroll-behavior:auto;}nav .wrap{transition:none;}}
+  @media print{.reveal{opacity:1 !important;transform:none !important;}nav{display:none;}section{padding:56px 0;}body::before,body::after{display:none;}}
+
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 36px;position:sticky;top:84px;z-index:20;padding:12px 0;background:linear-gradient(var(--bg) 70%,rgba(246,238,234,0));}
+  .filters button{font:500 13.5px 'Inter',sans-serif;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg-alt);color:var(--text-soft);cursor:pointer;transition:all .2s;}
+  .filters button:hover{border-color:var(--line-strong);color:var(--cream);}
+  .filters button.on{background:var(--cream);border-color:var(--cream);color:#fbf3ef;}
+  .filters .count{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums;}
+
+  .cr{background:var(--bg-alt);border-radius:var(--r-big);overflow:hidden;margin-bottom:24px;}
+  .cr.hide{display:none;}
+  .cr-head{display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:start;padding:34px 40px 26px;}
+  @media (max-width:760px){.cr-head{grid-template-columns:1fr;gap:10px;padding:26px 22px 18px;}}
+  .cr-id{font-family:'Fraunces',serif;font-weight:600;font-size:46px;line-height:0.9;letter-spacing:-0.04em;color:var(--terra);}
+  .cr-id small{display:block;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0;color:var(--text-softer);margin-top:8px;}
+  .cr-title{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,2.8vw,34px);line-height:1.06;letter-spacing:-0.025em;color:var(--cream);}
+  .cr-angle{font-size:15px;color:var(--text-soft);margin-top:8px;max-width:62ch;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .chip{font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--bg-alt2);color:var(--text-soft);}
+  .chip.p{background:var(--rose);color:var(--terra-light);}
+  .chip.d{background:var(--cream);color:#fbf3ef;}
+  .cr-time{font-size:12.5px;font-weight:600;color:var(--text-softer);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  @media (max-width:760px){.cr-time{text-align:left;}}
+
+  .cr-body{display:grid;grid-template-columns:1fr 1.25fr;border-top:1px solid var(--line);}
+  @media (max-width:900px){.cr-body{grid-template-columns:1fr;}}
+  .cr-col{padding:30px 40px;}
+  @media (max-width:760px){.cr-col{padding:24px 22px;}}
+  .cr-col + .cr-col{border-left:1px solid var(--line);}
+  @media (max-width:900px){.cr-col + .cr-col{border-left:none;border-top:1px solid var(--line);}}
+  .lbl{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--terra);margin-bottom:18px;}
+  .lbl span{font-weight:600;text-transform:none;letter-spacing:0;color:var(--text-softer);font-size:12px;}
+  .hook{padding:16px 0;border-top:1px solid var(--line);}
+  .hook:first-of-type{border-top:none;padding-top:0;}
+  .hook .ht{font-size:11.5px;font-weight:600;color:var(--text-softer);margin-bottom:6px;display:flex;gap:8px;align-items:center;}
+  .hook .ht b{color:var(--terra);font-weight:700;font-variant-numeric:tabular-nums;}
+  .hook p{font-family:'Fraunces',serif;font-weight:500;font-size:19px;line-height:1.3;color:var(--cream);}
+  .hook .vis{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-softer);margin-top:6px;font-style:normal;}
+  .scr p{font-size:16px;line-height:1.7;color:var(--cream);margin-bottom:14px;}
+  .script p:last-child{margin-bottom:0;}
+  .scr .cue{display:block;font-size:12.5px;font-weight:600;color:var(--text-softer);margin:-6px 0 14px;}
+  .cr-cta{display:grid;grid-template-columns:1fr 1fr;background:var(--cream);}
+  @media (max-width:760px){.cr-cta{grid-template-columns:1fr;}}
+  .cr-cta > div{padding:24px 40px;}
+  @media (max-width:760px){.cr-cta > div{padding:20px 22px;}}
+  .cr-cta > div + div{border-left:1px solid rgba(255,255,255,0.14);}
+  @media (max-width:760px){.cr-cta > div + div{border-left:none;border-top:1px solid rgba(255,255,255,0.14);}}
+  .cr-cta h6{font-size:12px;font-weight:600;color:#e7c3bc;margin-bottom:8px;}
+  .cr-cta p{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.32;color:#fff;}
+  .cr-notes{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);}
+  @media (max-width:760px){.cr-notes{grid-template-columns:1fr;}}
+  .cr-notes > div{padding:20px 40px;font-size:14px;color:var(--text-soft);}
+  @media (max-width:760px){.cr-notes > div{padding:18px 22px;}}
+  .cr-notes > div + div{border-left:1px solid var(--line);}
+  @media (max-width:760px){.cr-notes > div + div{border-left:none;border-top:1px solid var(--line);}}
+  .cr-notes b{display:block;font-size:12px;font-weight:700;color:var(--cream);margin-bottom:4px;}
+  .cr-notes .warn b{color:#8a2f36;}
+
+  .anatomy{display:grid;grid-template-columns:3fr 7fr 3fr;gap:4px;margin-top:8px;border-radius:var(--r-card);overflow:hidden;}
+  .anatomy > div{padding:26px 24px;}
+  .anatomy .a1{background:var(--terra);color:#fff;}
+  .anatomy .a2{background:var(--bg-alt);}
+  .anatomy .a3{background:var(--cream);color:#fff;}
+  .anatomy .t{font-size:12px;font-weight:600;opacity:.85;font-variant-numeric:tabular-nums;}
+  .anatomy h4{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:6px 0 8px;color:inherit;}
+  .anatomy p{font-size:14px;line-height:1.55;}
+  .anatomy .a1 p,.anatomy .a3 p{color:rgba(255,255,255,0.9);}
+  .anatomy .a2 p{color:var(--text-soft);}
+  @media (max-width:860px){.anatomy{grid-template-columns:1fr;}}
+  .check{list-style:none;border-top:1px solid var(--line);}
+  .check li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--text-soft);}
+  .check li::before{content:"";width:18px;height:18px;border:1.5px solid var(--terra);border-radius:5px;margin-top:3px;}
+  .check li b{color:var(--cream);font-weight:600;}
+  @media print{.filters{display:none;}.cr{break-inside:avoid;}}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Instituto <b>Mai</b></div>
+    <ul>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#anatomia">Anatomia</a></li>
+      <li><a href="#gravacao">Gravação</a></li>
+      <li><a href="#criativos">Criativos</a></li>
+      <li><a href="#regras">Regras</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top"><span class="gutter">Roteiros para gravação · Amamentação Mais Leve</span><span class="meta">Sessão de 02/10/2026 · (2026©)</span></div>
+    <h1 class="hero-mega">Criativos<span class="dot">.</span></h1>
+    <div class="hero-split">
+      <div class="who"><span class="name">Elis</span><span class="role">Instituto Mai · Cascavel, PR</span><span class="script">lote 01 do perpétuo</span></div>
+      <p class="desc">14 roteiros organizados por persona, cada um com <span class="hl">três hooks, um desenvolvimento e dois CTAs</span>. Gravados em lote por cenário, viram mais de oitenta combinações para o gerenciador testar.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">14</div><div class="label">Roteiros completos</div></div>
+      <div class="stat"><div class="num">42</div><div class="label">Hooks para testar</div></div>
+      <div class="stat"><div class="num">4</div><div class="label">Cenários, gravados em blocos</div></div>
+      <div class="stat"><div class="num">5</div><div class="label">Personas cobertas</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="gutter">Como pensamos os criativos</span>
+      <div class="sec-side"><h2 class="title">Perpétuo vive de criativo. <em>Volume, persona e anúncio com cara de conteúdo.</em></h2><p class="lede">A base é a lógica de perpétuo do Leandro Ladeira aplicada à realidade da Elis: a venda acontece todo dia, então o estoque de criativos precisa ser renovado sempre, e o teste decide, não a opinião.</p></div>
+      <div class="mega" aria-hidden="true">Método<span class="dot">.</span><sup>(06)</sup></div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="n">01</div><h4>Anúncio com cara de conteúdo</h4><p>A Elis falando como fala no Instagram, ensinando algo útil. Quem assiste aprende antes de ser convidado a comprar.</p></div>
+      <div class="card"><div class="n">02</div><h4>Os três primeiros segundos decidem</h4><p>Nenhum vídeo abre com apresentação. Abre com a dor, a situação ou a pergunta da persona.</p></div>
+      <div class="card"><div class="n">03</div><h4>Uma persona, uma dor, um vídeo</h4><p>Gestante, puérpera e acompanhante não recebem o mesmo criativo. Cada roteiro tem um alvo só.</p></div>
+      <div class="card"><div class="n">04</div><h4>Volume por combinação</h4><p>Um corpo gravado com três hooks e dois CTAs vira seis versões. O gerenciador encontra a vencedora.</p></div>
+      <div class="card"><div class="n">05</div><h4>Renovação constante</h4><p>Criativo cansa. Gravar em lote garante semanas de estoque sem depender da agenda da Elis.</p></div>
+      <div class="card"><div class="n">06</div><h4>Um CTA claro por etapa</h4><p>Hoje o destino é o curso, que está no ar. Os CTAs alternativos ficam prontos para as iscas, o enxoval e o atendimento local.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="anatomia">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="gutter">Estrutura de cada vídeo</span>
+      <div class="sec-side"><h2 class="title">Hook, desenvolvimento e CTA. <em>Nessa ordem, sempre.</em></h2><p class="lede">Vídeos verticais de 25 a 60 segundos. A proporção abaixo é a referência para a edição.</p></div>
+      <div class="mega" aria-hidden="true">Anatomia<span class="dot">.</span></div>
+    </div>
+    <div class="anatomy">
+      <div class="a1"><span class="t">0 a 3 s</span><h4>Hook</h4><p>Para o dedo. Nomeia a dor, a situação ou a pessoa. Texto na tela reforçando a frase.</p></div>
+      <div class="a2"><span class="t">3 a 45 s</span><h4>Desenvolvimento</h4><p>Entrega um ensinamento real em linguagem simples: o que acontece, por que acontece, o que fazer. Uma ideia por vídeo, sem fisiologia.</p></div>
+      <div class="a3"><span class="t">5 s finais</span><h4>CTA</h4><p>Um pedido só, direto, ligado ao que acabou de ser ensinado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gravacao">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="gutter">Plano do set</span>
+      <div class="sec-side"><h2 class="title">Gravar por cenário, <em>não por ordem de roteiro.</em></h2><p class="lede">Trocar de cenário é o que mais consome tempo. A ordem abaixo começa pelo vídeo mais fácil para a Elis aquecer.</p></div>
+      <div class="mega" aria-hidden="true">Gravação<span class="dot">.</span><sup>(04)</sup></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Cenário</th><th>Montagem</th><th>Roteiros, na ordem</th><th>Tempo estimado</th></tr>
+        <tr><td class="hl">A · Consultório</td><td>Uniforme do Instituto, fundo da clínica, luz frontal suave</td><td class="yes">C13, C01, C05, C06, C07, C08, C04, C14</td><td>~70 min</td></tr><tr><td class="hl">B · Ambiente de enxoval</td><td>Espaço da parceira, roupinhas, itens sem marca</td><td class="yes">C02, C03</td><td>~30 min</td></tr><tr><td class="hl">C · Casa</td><td>Cozinha de dia (C11) e quarto com abajur (C12)</td><td class="yes">C11, C12</td><td>~30 min</td></tr><tr><td class="hl">D · Com acompanhante</td><td>Casal autorizado ou só a Elis</td><td class="yes">C09, C10</td><td>~25 min</td></tr>
+      </table>
+    </div>
+    <div class="split mt">
+      <div class="l"><h3 class="sub">Checklist antes do REC</h3><p class="lede">Cinco minutos de checagem economizam uma regravação inteira.</p></div>
+      <div class="r">
+        <ul class="check">
+          <li><span><b>Vertical 9:16</b>, rosto no terço superior, espaço para legenda embaixo.</span></li>
+          <li><span><b>Microfone de lapela</b> ligado e testado em cada troca de cenário.</span></li>
+          <li><span><b>Três hooks em sequência</b> depois do corpo, mesma luz, mesma posição.</span></li>
+          <li><span><b>Dois CTAs</b> gravados separados, com dois segundos de silêncio antes e depois.</span></li>
+          <li><span><b>Autorização de imagem por escrito</b> de qualquer pessoa ou espaço que apareça.</span></li>
+          <li><span><b>Nenhuma marca</b> de produto no quadro, principalmente de alimentação infantil.</span></li>
+          <li><span><b>Elis revisa o texto clínico</b> do C04, C06, C08 e C14 antes de gravar.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="criativos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="gutter">Roteiros</span>
+      <div class="sec-side"><h2 class="title">Catorze vídeos, <em>cinco personas.</em></h2><p class="lede">Filtre por persona. Cada card traz o ângulo, os três hooks com a lógica de cada um, o corpo do vídeo e os CTAs.</p></div>
+      <div class="mega" aria-hidden="true">Roteiros<span class="dot">.</span><sup>(14)</sup></div>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar por persona"><button class="on" data-f="all">Todos<span class="count">14</span></button><button data-f="g">Gestante<span class="count">6</span></button><button data-f="p">Puérpera<span class="count">4</span></button><button data-f="a">Acompanhante<span class="count">2</span></button><button data-f="t">Volta ao trabalho<span class="count">1</span></button><button data-f="f">Família à distância<span class="count">1</span></button></div>
+    
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">01<small>C01</small></div>
+        <div>
+          <h3 class="cr-title">O maior medo: não ter leite</h3>
+          <p class="cr-angle">Nomeia o medo número um da gestante e desmonta com a linha do tempo real do leite. Criativo-âncora da campanha da gestante.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">40 a 50 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Dor nomeada</div><p>Se o seu maior medo é não ter leite, você não está sozinha. É o medo que eu mais escuto das gestantes que atendo.</p><div class="vis">Visual: Elis em plano médio, olhando para a câmera, uniforme do Instituto.</div></div><div class="hook"><div class="ht"><b>H2</b>Curiosidade</div><p>Grávida? Deixa eu te contar o que acontece com o seu leite nos três primeiros dias, porque quase ninguém explica isso.</p></div><div class="hook"><div class="ht"><b>H3</b>Quebra de crença</div><p>Pouco leite nos primeiros dias não quer dizer pouco leite. Quer dizer leite do tamanho certo.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Nos primeiros dias, o corpo produz pouco, e é para ser assim. O estômago do recém-nascido é muito pequeno. Muita mãe acha que está com pouco leite exatamente nessa hora, e não está.</p><p>Por volta do terceiro dia vem a apojadura: o leite desce de vez, a mama fica cheia, quente, pesada. Quem não sabe o que fazer nesse momento sente dor, e a mama pode empedrar.</p><p>E perto do décimo dia a mama fica mais macia de novo. Não é o leite secando. É a produção se ajustando ao seu bebê.</p><p>Quem sabe disso antes chega na maternidade muito mais tranquila.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Eu explico cada uma dessas fases em aulas de poucos minutos no Amamentação Mais Leve. Toca em saiba mais e assiste ainda na gestação.</p></div>
+        <div><h6>CTA alternativo</h6><p>Quer chegar na maternidade sabendo o que fazer? O link está aqui embaixo.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar o corpo inteiro de uma vez; os três hooks em sequência no final, mesma luz e enquadramento.</div>
+        <div class="warn"><b>Cuidado</b>Não prometer que ela vai ter leite. A promessa é saber o que esperar e o que fazer.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">02<small>C02</small></div>
+        <div>
+          <h3 class="cr-title">Estude enquanto vive</h3>
+          <p class="cr-angle">Inspirado no formato que a Elis citou: aprender enquanto faz outra coisa. Responde à objeção de tempo e mostra o diferencial das microaulas.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">B-roll com voz</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
+        </div>
+        <div class="cr-time">25 a 35 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Formato</div><p>Dá para se preparar para amamentar enquanto você arruma o quartinho.</p><div class="vis">Visual: Elis dobrando roupinhas, fone no ouvido, celular apoiado mostrando uma aula.</div></div><div class="hook"><div class="ht"><b>H2</b>Objeção de tempo</div><p>Sem tempo para fazer curso na gravidez? As aulas aqui têm poucos minutos.</p></div><div class="hook"><div class="ht"><b>H3</b>Chamada de persona</div><p>Se você está no terceiro trimestre e ainda não pensou na amamentação, começa por aqui.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>O Amamentação Mais Leve foi feito para a rotina da gestante. As aulas são curtas, de um a poucos minutos, porque eu sei que a cabeça na gravidez está a mil.</p><p>Você assiste enquanto dobra roupinha, toma um café, espera a consulta. Pega, posição, como saber se o bebê está mamando bem, o que acontece no terceiro dia.</p><p>E depois que o bebê nasce, está tudo lá. Às três da manhã, se precisar, você abre e revisa.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e começa hoje, no seu tempo.</p></div>
+        <div><h6>CTA alternativo</h6><p>Salva esse vídeo e manda para quem vai estar do seu lado no parto.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar a cena muda primeiro (dobrando, guardando, olhando o celular) e a narração depois, em áudio limpo. Pedir autorização da parceira para usar o espaço.</div>
+        <div class="warn"><b>Cuidado</b>Sem marca de produto aparecendo, principalmente mamadeira, bico e chupeta.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">03<small>C03</small></div>
+        <div>
+          <h3 class="cr-title">Antes de comprar o enxoval da amamentação</h3>
+          <p class="cr-angle">Entra pela compra, que a gestante já está fazendo, e leva ao módulo de acessórios. Ponte natural para o futuro low ticket de enxoval.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário B · Ambiente de enxoval</span></div>
+        </div>
+        <div class="cr-time">30 a 40 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Interrupção</div><p>Antes de comprar qualquer coisa de amamentação para o enxoval, me escuta trinta segundos.</p><div class="vis">Visual: Elis segurando uma almofada de amamentação sem marca.</div></div><div class="hook"><div class="ht"><b>H2</b>Desperdício</div><p>Tem item de amamentação que muita mãe compra no enxoval e nunca usa.</p></div><div class="hook"><div class="ht"><b>H3</b>Pergunta direta</div><p>Almofada, bomba, protetor de mamilo, pomada: o que você realmente vai precisar?</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Lista de enxoval é cheia de coisa de amamentação. Almofada, protetor, pomada, coletor, bomba. Parte disso ajuda muito. Parte depende da sua rotina e pode esperar o bebê nascer.</p><p>No Amamentação Mais Leve tem um módulo só sobre isso: para que serve cada item, quando faz sentido e como usar do jeito certo.</p><p>Assim você compra o que precisa e não gasta com o que vai ficar na gaveta.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Antes de fechar a lista, assiste o módulo. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Quando a lista de enxoval estiver no ar: comenta ENXOVAL que eu te mando.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Usar só itens sem logotipo. Evitar enquadrar prateleira com marcas.</div>
+        <div class="warn"><b>Cuidado</b>NBCAL: nunca mostrar ou citar chupeta, mamadeira ou bico como produto. Não indicar marca.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">04<small>C04</small></div>
+        <div>
+          <h3 class="cr-title">Colostro na gestação</h3>
+          <p class="cr-angle">O diferencial técnico mais novo do curso. Gera curiosidade e autoridade, mas exige o cuidado clínico mais rigoroso do lote.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Novidade</div><p>Você sabia que algumas gestantes podem guardar colostro antes do bebê nascer?</p><div class="vis">Visual: Elis com uma seringa oral vazia na mão, sem conteúdo.</div></div><div class="hook"><div class="ht"><b>H2</b>Mudança recente</div><p>Uma coisa mudou na amamentação nos últimos anos e quase ninguém te conta.</p></div><div class="hook"><div class="ht"><b>H3</b>Pergunta de persona</div><p>Vai fazer cesárea? Pergunta para quem te acompanha sobre o colostro.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Estudos dos últimos anos mostram benefício, em alguns casos, de a gestante ordenhar o colostro ainda na gravidez, guardar em seringa, congelar e oferecer quando o bebê nascer.</p><p>Mas não é para todo mundo. Tem situação em que isso é indicado e situação em que não é. Por isso, antes de fazer, converse com o profissional que acompanha o seu pré-natal.</p><p>Se for indicado para você, o jeito de ordenhar, guardar e oferecer faz toda a diferença.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Eu ensino o passo a passo no Amamentação Mais Leve. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>É de Cascavel? Chama a gente no WhatsApp para avaliar se faz sentido para você.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Gravar só depois de a aula de colostro existir no curso. Elis revisa o texto clínico antes da gravação.</div>
+        <div class="warn"><b>Cuidado</b>Nunca dizer &quot;você tem indicação&quot;. O hook de cesárea depende de validação da Elis; se ela não aprovar, usar só os dois primeiros.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p">
+      <div class="cr-head">
+        <div class="cr-id">05<small>C05</small></div>
+        <div>
+          <h3 class="cr-title">A segunda noite</h3>
+          <p class="cr-angle">Identificação imediata com a puérpera e com o acompanhante. Usa o comportamento que a Elis descreve na clínica.</p>
+          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Identificação de momento</div><p>Seu bebê dormiu quase o primeiro dia inteiro e na segunda noite não para de chorar? Calma.</p><div class="vis">Visual: Texto na tela: &quot;segunda noite&quot;.</div></div><div class="hook"><div class="ht"><b>H2</b>Quebra de crença</div><p>Nem todo choro do recém-nascido é fome.</p></div><div class="hook"><div class="ht"><b>H3</b>Chamada de persona</div><p>Se você acabou de ter bebê, guarda esse vídeo para a segunda noite.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>No primeiro dia o bebê costuma estar mais sonolento. Na segunda noite ele acorda para o mundo: chora, quer colo, quer o peito o tempo todo.</p><p>Muita mãe acha que o leite não está dando conta e coloca no peito sem parar, do jeito que dá. E aí machuca.</p><p>Saber que isso é esperado muda tudo. Você ajusta a pega com calma, acolhe o bebê e não se desespera achando que falta leite.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Tem uma aula curtinha só sobre isso no Amamentação Mais Leve: nem todo choro é fome. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Manda para alguém que está grávida. Ela vai lembrar de você na segunda noite.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Tom calmo, quase sussurrado no hook. É o vídeo que a mãe vai ver de madrugada.</div>
+        <div class="warn"><b>Cuidado</b>Não substituir avaliação: se o bebê não molha fralda ou parece muito prostrado, procurar atendimento. Pode entrar como legenda.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p">
+      <div class="cr-head">
+        <div class="cr-id">06<small>C06</small></div>
+        <div>
+          <h3 class="cr-title">Dia 3: mama empedrada</h3>
+          <p class="cr-angle">O sintoma mais concreto e urgente. Criativo-âncora da campanha da puérpera e do futuro SOS.</p>
+          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head + demonstração</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">40 a 50 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Sintoma exato</div><p>Terceiro dia depois do parto e a mama ficou dura, quente e doendo? Assiste até o final.</p><div class="vis">Visual: Elis apontando para a região, sem paciente.</div></div><div class="hook"><div class="ht"><b>H2</b>Consequência</div><p>Mama empedrada é um dos motivos que mais fazem a mãe desistir de amamentar.</p></div><div class="hook"><div class="ht"><b>H3</b>Comando</div><p>Se a sua mama empedrou, não deixa a dor tomar a decisão por você.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Isso costuma ser a apojadura: o leite descendo de vez. A mama enche tanto que o bebê não consegue abocanhar direito.</p><p>Dói, a mãe tira menos leite, a mama enche mais. Vira um ciclo.</p><p>Quando você sabe fazer a massagem e a ordenha do jeito certo, consegue aliviar antes de complicar. E se aparecer febre ou vermelhidão forte, é hora de procurar atendimento.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>A aula de mamas empedradas está no Amamentação Mais Leve, com a massagem passo a passo. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>É de Cascavel e região? A gente atende presencial e em domicílio. Chama no WhatsApp.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Se houver demonstração, usar mama de modelo didático. Nada de paciente real sem autorização por escrito.</div>
+        <div class="warn"><b>Cuidado</b>Sem promessa de cura. Sinais de alerta precisam aparecer na fala.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p">
+      <div class="cr-head">
+        <div class="cr-id">07<small>C07</small></div>
+        <div>
+          <h3 class="cr-title">Dia 10: meu leite secou?</h3>
+          <p class="cr-angle">Desmonta a falsa queda de produção, que a Elis vê nas pacientes por volta do décimo dia e de novo perto dos dois meses.</p>
+          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">30 a 40 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Quebra de crença</div><p>Sua mama ficou mais mole e você acha que o leite secou? Provavelmente não.</p></div><div class="hook"><div class="ht"><b>H2</b>Identificação de momento</div><p>Por volta do décimo dia, muita mãe acha que perdeu o leite.</p></div><div class="hook"><div class="ht"><b>H3</b>Pergunta</div><p>Mama macia é sinal de pouco leite?</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>No começo o corpo produz mais do que o bebê precisa, e a mama fica cheia e dura.</p><p>Por volta do décimo dia a produção se ajusta ao que o seu bebê mama. A mama fica mais macia. Não é o leite indo embora. É o corpo entendendo a demanda.</p><p>Saber disso evita muita complementação desnecessária e muita culpa.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>No Amamentação Mais Leve eu mostro como saber se o bebê está mamando o suficiente. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Quando o SOS de produção estiver no ar: comenta LEITE.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Pode ser gravado em sequência com o C06, mesmo cenário.</div>
+        <div class="warn"><b>Cuidado</b>Não generalizar: baixo ganho de peso existe e precisa de avaliação. A aula de baixo ganho de peso pode ser citada.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="p">
+      <div class="cr-head">
+        <div class="cr-id">08<small>C08</small></div>
+        <div>
+          <h3 class="cr-title">Remédio não é motivo automático para desmamar</h3>
+          <p class="cr-angle">A história real da Elis vira o vilão do projeto: a informação errada no momento errado. Sem atacar médico.</p>
+          <div class="chips"><span class="chip p">Puérpera</span><span class="chip ">Talking head, storytelling</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">45 a 60 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>História pessoal</div><p>Me orientaram a parar de amamentar a minha filha para tomar antibiótico. Não precisava.</p></div><div class="hook"><div class="ht"><b>H2</b>Alerta</div><p>Vai tomar um remédio e alguém disse para parar de amamentar? Antes, assiste isso.</p></div><div class="hook"><div class="ht"><b>H3</b>Confissão</div><p>O erro que me fez desmamar a minha filha.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Quando a Gabi era bebê, eu precisei tomar antibiótico e a orientação que recebi foi parar de amamentar. Eu parei.</p><p>Hoje eu sei que a maioria dos medicamentos é compatível com a amamentação. Existe uma consulta pública, por nome do remédio, que mostra se ele pode ser usado amamentando.</p><p>Se alguém te disser para parar, pergunte especificamente sobre amamentação para quem prescreveu. Às vezes existe outra opção.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>No Amamentação Mais Leve eu deixo o caminho dessa consulta e explico como usar. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Quando o guia gratuito estiver no ar: comenta REMÉDIO que eu te mando.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>É o criativo de maior conexão. Deixar a Elis contar com as palavras dela; o texto acima é guia, não teleprompter.</div>
+        <div class="warn"><b>Cuidado</b>Nunca dizer que o médico errou. O foco é a informação. Não indicar remédio nem dose.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="a">
+      <div class="cr-head">
+        <div class="cr-id">09<small>C09</small></div>
+        <div>
+          <h3 class="cr-title">Acompanhante, esse vídeo é para você</h3>
+          <p class="cr-angle">Fala com quem mais engaja no perfil e quem decide quando a mãe não consegue pensar. Linguagem inclusiva: acompanhante.</p>
+          <div class="chips"><span class="chip p">Acompanhante</span><span class="chip ">Talking head ou casal</span><span class="chip ">Cenário D · Com acompanhante</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Chamada de persona</div><p>Acompanhante, esse vídeo é para você.</p><div class="vis">Visual: Se houver casal autorizado: os dois no quadro, a Elis fala com ele.</div></div><div class="hook"><div class="ht"><b>H2</b>Provocação</div><p>Ela vai amamentar. E você, vai fazer o quê?</p></div><div class="hook"><div class="ht"><b>H3</b>Situação</div><p>O que o acompanhante pode fazer na segunda noite do bebê.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Aqui na clínica é muito difícil uma paciente vir sem o acompanhante. E faz sentido.</p><p>Depois do parto, a mulher está cansada, hormonal, e muitas vezes não consegue pensar com clareza. Quem está do lado precisa saber o que é normal e o que não é.</p><p>Saber que a segunda noite é difícil, reconhecer a mama empedrada no terceiro dia, ajudar a posicionar o bebê. Isso muda a experiência dos dois.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>O Amamentação Mais Leve fala com vocês dois. Assistam juntos. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Marca aqui quem vai estar do seu lado.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Se não houver casal disponível hoje, gravar só com a Elis. Versão com casal fica para a próxima sessão.</div>
+        <div class="warn"><b>Cuidado</b>Não usar &quot;pai&quot; como única palavra. Autorização de imagem por escrito de qualquer pessoa no quadro.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="a">
+      <div class="cr-head">
+        <div class="cr-id">10<small>C10</small></div>
+        <div>
+          <h3 class="cr-title">&quot;Ela tá com fome de novo?&quot;</h3>
+          <p class="cr-angle">Versão leve e humorada para o público que já engaja com conteúdo de casal. Mesmo ensinamento do C05, outra porta de entrada.</p>
+          <div class="chips"><span class="chip p">Acompanhante</span><span class="chip ">Esquete curta</span><span class="chip ">Cenário D · Com acompanhante</span></div>
+        </div>
+        <div class="cr-time">20 a 30 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Diálogo</div><p>&quot;Ela tá chorando de fome de novo?&quot; Não necessariamente.</p><div class="vis">Visual: Acompanhante segurando boneco didático, Elis entra no quadro.</div></div><div class="hook"><div class="ht"><b>H2</b>Humor de situação</div><p>Todo acompanhante na segunda noite do bebê.</p></div><div class="hook"><div class="ht"><b>H3</b>Pergunta</div><p>Choro é sempre fome?</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Na segunda noite o bebê chora muito, e a primeira reação de todo mundo é achar que é fome.</p><p>Nem sempre é. Às vezes é colo, é adaptação ao mundo aqui fora. Colocar no peito sem parar, de qualquer jeito, machuca a mãe.</p><p>Saber ler o bebê tira um peso enorme dos dois.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Aula curtinha, nem todo choro é fome, no Amamentação Mais Leve. Saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Manda para o seu acompanhante.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Usar boneco didático, nunca bebê real nesta cena.</div>
+        <div class="warn"><b>Cuidado</b>Humor sobre a situação, nunca sobre a mãe.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="t">
+      <div class="cr-head">
+        <div class="cr-id">11<small>C11</small></div>
+        <div>
+          <h3 class="cr-title">Volta ao trabalho sem desmamar</h3>
+          <p class="cr-angle">Fala com a mãe no momento exato de compra: quando decide voltar. Ponte para o produto de retorno ao trabalho e para o B2B.</p>
+          <div class="chips"><span class="chip p">Volta ao trabalho</span><span class="chip ">Talking head</span><span class="chip ">Cenário C · Casa</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Chamada de persona</div><p>Vai voltar a trabalhar e não quer parar de amamentar? Começa a se preparar um mês antes.</p><div class="vis">Visual: Elis numa cozinha, frascos de vidro sem marca na bancada.</div></div><div class="hook"><div class="ht"><b>H2</b>Pergunta</div><p>O que fazer com o leite enquanto você trabalha?</p></div><div class="hook"><div class="ht"><b>H3</b>Afirmação</div><p>Dá para voltar ao trabalho e continuar amamentando.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>A volta da licença assusta. Quem vai alimentar o bebê, como, com o quê.</p><p>O caminho é se preparar antes: aprender a ordenhar, armazenar e aquecer o leite com segurança, e oferecer de um jeito que não atrapalhe a amamentação quando você estiver em casa, como o copinho ou a colher dosadora.</p><p>Com algumas semanas de preparo, a rotina fica muito mais leve.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Tem um módulo inteiro sobre ordenha, armazenamento e retorno ao trabalho no Amamentação Mais Leve. Saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Sua empresa tem muitas mães voltando de licença? Chama a gente.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Frascos de vidro sem rótulo. Nenhum utensílio de marca no quadro.</div>
+        <div class="warn"><b>Cuidado</b>NBCAL: não mostrar mamadeira como solução. Copinho e colher dosadora são as opções faladas.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="f">
+      <div class="cr-head">
+        <div class="cr-id">12<small>C12</small></div>
+        <div>
+          <h3 class="cr-title">Três da manhã</h3>
+          <p class="cr-angle">O argumento de origem do curso, nas palavras da Elis. Funciona para quem mora longe e para qualquer mãe sem rede de apoio por perto.</p>
+          <div class="chips"><span class="chip p">Família à distância</span><span class="chip ">Talking head, luz baixa</span><span class="chip ">Cenário C · Casa</span></div>
+        </div>
+        <div class="cr-time">30 a 40 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Cena</div><p>São três da manhã, o bebê não pega o peito e não tem ninguém acordado para te ajudar.</p><div class="vis">Visual: Luz baixa, abajur, Elis falando baixo como numa madrugada.</div></div><div class="hook"><div class="ht"><b>H2</b>Chamada de persona</div><p>Mora longe da família e da sua rede de apoio? Isso é para você.</p></div><div class="hook"><div class="ht"><b>H3</b>Contraste</div><p>A consultora não responde de madrugada. A aula responde.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Eu sempre falo para as famílias que acompanho: às três da manhã, vocês conseguem assistir uma aula.</p><p>A dificuldade na amamentação não marca horário. Aparece no fim de semana, de madrugada, quando ninguém atende.</p><p>Por isso eu gravei o Amamentação Mais Leve com uma aula para cada situação. Você procura o que está acontecendo, assiste em poucos minutos e volta para o seu bebê.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e deixa o curso pronto antes de precisar.</p></div>
+        <div><h6>CTA alternativo</h6><p>Mora fora do Brasil? A consultoria online também existe. Chama no WhatsApp.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Ambiente escuro com uma fonte de luz quente. Áudio baixo e próximo.</div>
+        <div class="warn"><b>Cuidado</b>Não prometer resposta imediata de pessoa. O que está disponível 24 horas é o curso.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">13<small>C13</small></div>
+        <div>
+          <h3 class="cr-title">Sem julgamento</h3>
+          <p class="cr-angle">O posicionamento em forma de criativo. Gera conexão com quem se sente cobrada pelo nicho e diferencia a Elis de todo mundo.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">35 a 45 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Contra-intuitivo</div><p>Eu não prometo que você vai amamentar até os dois anos. E vou te explicar por quê.</p></div><div class="hook"><div class="ht"><b>H2</b>Pergunta provocativa</div><p>O que é uma amamentação de sucesso? Talvez não seja o que te disseram.</p></div><div class="hook"><div class="ht"><b>H3</b>Acolhimento</div><p>A sua amamentação não precisa ser igual à de ninguém.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Eu não prometo amamentação de sucesso. Até porque, o que é uma amamentação de sucesso?</p><p>Para uma mãe pode ser três dias. Para outra, seis meses. Para outra, dois anos. O que importa é ser saudável para você e para o seu bebê.</p><p>O meu trabalho é te dar informação e técnica para você decidir com segurança, sem culpa e sem julgamento.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>É assim que eu ensino no Amamentação Mais Leve. Toca em saiba mais.</p></div>
+        <div><h6>CTA alternativo</h6><p>Se esse vídeo te aliviou, manda para uma amiga grávida.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Pode ser o primeiro a gravar: aquece a Elis e não tem termo técnico.</div>
+        <div class="warn"><b>Cuidado</b>Não falar contra o aleitamento exclusivo nem contra recomendações oficiais. A mensagem é respeito à escolha informada.</div>
+      </div>
+    </article>
+    <article class="cr reveal" data-p="g">
+      <div class="cr-head">
+        <div class="cr-id">14<small>C14</small></div>
+        <div>
+          <h3 class="cr-title">Mamilo plano ou invertido</h3>
+          <p class="cr-angle">Primeiro de uma série de casos fora do padrão. Mostra a profundidade do curso e atrai uma dor específica e silenciosa.</p>
+          <div class="chips"><span class="chip p">Gestante</span><span class="chip ">Talking head</span><span class="chip ">Cenário A · Consultório</span></div>
+        </div>
+        <div class="cr-time">30 a 40 s</div>
+      </div>
+      <div class="cr-body">
+        <div class="cr-col"><div class="lbl">Hooks <span>0 a 3 segundos · gravar os três</span></div><div class="hook"><div class="ht"><b>H1</b>Dúvida específica</div><p>Mamilo plano ou invertido: dá para se preparar ainda na gravidez.</p></div><div class="hook"><div class="ht"><b>H2</b>Medo</div><p>Tem mamilo invertido e acha que não vai conseguir amamentar?</p></div><div class="hook"><div class="ht"><b>H3</b>Série</div><p>Prótese, redução de mama, mamilo invertido. Tem aula para cada caso.</p></div></div>
+        <div class="cr-col scr"><div class="lbl">Desenvolvimento <span>fala natural, não decorar</span></div><p>Mamilo plano ou invertido é mais comum do que parece, e muita mulher só descobre que isso pode atrapalhar a pega quando o bebê nasce.</p><p>Quando a gente orienta ainda na gestação, dá para trabalhar com cuidados simples e chegar no parto mais preparada, com menos dificuldade na primeira pega.</p><p>No curso tem aula para cada tipo de mamilo e para outros casos, como prótese e redução de mama.</p></div>
+      </div>
+      <div class="cr-cta">
+        <div><h6>CTA principal · curso no ar</h6><p>Toca em saiba mais e assiste a aula do seu caso.</p></div>
+        <div><h6>CTA alternativo</h6><p>É de Cascavel? Agenda uma avaliação ainda na gestação.</p></div>
+      </div>
+      <div class="cr-notes">
+        <div><b>Na gravação</b>Sem imagem de corpo. Usar ilustração ou modelo didático se precisar mostrar.</div>
+        <div class="warn"><b>Cuidado</b>O hook de prótese e redução não promete resultado: cada caso tem particularidade. Elis valida o texto.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="regras">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="gutter">O que nunca entra</span>
+      <div class="sec-side"><h2 class="title">Saúde tem regra. <em>Criativo bom respeita todas.</em></h2><p class="lede">Confirmar com a Elis as normas do conselho de enfermagem para publicidade antes de subir os anúncios.</p></div>
+      <div class="mega" aria-hidden="true">Regras<span class="dot">.</span><sup>(06)</sup></div>
+    </div>
+    <div class="risk"><div class="rk">Promessa</div><div><h4>Nada de resultado garantido</h4><p>Sem "você vai ter leite", "nunca mais vai doer" ou prazo de solução. A promessa é saber o que fazer.</p></div></div>
+    <div class="risk"><div class="rk">NBCAL</div><div><h4>Chupeta, mamadeira e bico fora dos anúncios</h4><p>A Lei 11.265/2006 restringe a promoção desses itens. Não aparecem no quadro, não são citados como solução, sem marca nenhuma.</p></div></div>
+    <div class="risk"><div class="rk">Clínico</div><div><h4>Colostro e remédio sempre com ressalva</h4><p>Toda fala sobre ordenha de colostro e medicamento termina em "converse com quem te acompanha". Nenhuma indicação individual em anúncio.</p></div></div>
+    <div class="risk"><div class="rk">Imagem</div><div><h4>Antes e depois, paciente e bebê real</h4><p>Sem antes e depois. Paciente ou bebê só com autorização por escrito; na dúvida, boneco ou modelo didático.</p></div></div>
+    <div class="risk"><div class="rk">Linguagem</div><div><h4>Acompanhante, não só "pai"</h4><p>Regra que a Elis já segue: aleitamento humano e acompanhante, para não excluir nenhuma família.</p></div></div>
+    <div class="risk"><div class="rk">Tom</div><div><h4>Sem atacar médico, hospital ou banco de leite</h4><p>O vilão é a informação errada, nunca um profissional. Obstetras e pediatras são canal de indicação.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-title">Grava hoje, <em>vende todo dia.</em></div>
+    <div class="f-row"><span>Elis · Instituto Mai · Cascavel, PR</span><span>Roteiros de criativos · Lote 01 · Uso interno</span><span>Outubro de 2026</span></div>
+    <div class="wordmark" aria-hidden="true">Instituto Mai.</div>
+  </div>
+</footer>
+
+<script>
+  const els=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.06});
+  els.forEach(el=>io.observe(el));
+  const nav=document.querySelector('nav');
+  const onScroll=()=>nav.classList.toggle('is-pill',window.scrollY>80);
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+    const f=b.dataset.f;
+    document.querySelectorAll('.cr').forEach(c=>{const show=f==='all'||c.dataset.p===f;c.classList.toggle('hide',!show);if(show)c.classList.add('in');});
+  }));
+</script>
+</body>
+</html>
